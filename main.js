@@ -339,7 +339,36 @@ function undoMove(boardId) {
 }
 
 // ────────────────────────────────────────────────────────────
-// 4. 체스 명언 자동 순환 (U5: setInterval / U6: clearInterval)
+// 4. 체스 통계 fetch (D1: fetch / D2: async-await / D3: response.json)
+// ────────────────────────────────────────────────────────────
+
+async function fetchChessFacts() {
+  const container = document.getElementById('homeStats');
+  try {
+    const response = await fetch('./chess-facts.json');
+    if (!response.ok) throw new Error(`서버 오류: ${response.status}`);
+    const data = await response.json();          // D3: JSON 변환
+    if (!container) return;
+    container.innerHTML = '';
+    data.stats.forEach(item => {                 // D4: DOM 동적 생성
+      const card = document.createElement('div');
+      card.className = 'stat-card';
+      card.innerHTML =
+        `<span class="stat-icon">${item.icon}</span>` +
+        `<span class="stat-value">${item.value}</span>` +
+        `<span class="stat-label">${item.label}</span>`;
+      container.appendChild(card);
+    });
+  } catch (e) {                                  // D5: 오류 처리
+    if (container) container.innerHTML = '<p class="stats-loading">데이터를 불러올 수 없습니다.</p>';
+    console.error('[fetch] chess-facts.json 로드 실패:', e);
+  }
+}
+
+fetchChessFacts();
+
+// ────────────────────────────────────────────────────────────
+// 5. 체스 명언 자동 순환 (U5: setInterval / U6: clearInterval)
 // ────────────────────────────────────────────────────────────
 
 const CHESS_QUOTES = [

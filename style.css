@@ -1103,6 +1103,61 @@ body {
   margin-bottom: 1rem;
 }
 
+/* ===== 홈 통계 (fetch로 동적 로드) ===== */
+.home-stats {
+  background: var(--dark2);
+  border-top: 1px solid rgba(201,168,76,0.15);
+  padding: 2.5rem 3rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.stat-card {
+  text-align: center;
+  padding: 1.6rem 1rem;
+  border: 1px solid rgba(201,168,76,0.12);
+  border-radius: 10px;
+  background: var(--dark3);
+  transition: transform var(--transition), border-color var(--transition);
+  animation: fadeIn 0.45s ease forwards;
+}
+.stat-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201,168,76,0.4);
+}
+.stat-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.6rem;
+  color: var(--gold);
+  line-height: 1;
+}
+.stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: var(--gold-light);
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 700;
+}
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--cream2);
+  font-weight: 300;
+  opacity: 0.75;
+  line-height: 1.4;
+}
+.stats-loading {
+  color: var(--gold);
+  opacity: 0.45;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 1rem;
+  grid-column: 1 / -1;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
+
 /* ===== 반응형 ===== */
 @media (max-width: 1100px) {
   .strategy-play-layout { grid-template-columns: 1fr; gap: 2rem; }
@@ -1110,6 +1165,7 @@ body {
 }
 
 @media (max-width: 900px) {
+  .home-stats { grid-template-columns: repeat(2, 1fr); padding: 2rem 2rem; }
   :root { --nav-width: 180px; }
   .sub-items-grid { grid-template-columns: repeat(2, 1fr); }
   .pieces-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1120,6 +1176,7 @@ body {
 }
 
 @media (max-width: 640px) {
+  .home-stats { grid-template-columns: repeat(2, 1fr); padding: 1.5rem 1rem; }
   :root { --nav-width: 0px; }
   .side-nav { transform: translateX(-100%); width: 220px; }
   .side-nav.open { transform: translateX(0); }
