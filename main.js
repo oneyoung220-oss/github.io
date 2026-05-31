@@ -177,6 +177,7 @@ function renderBoard(boardId) {
       // 기물 표시
       if (piece) {
         cell.textContent = PIECE_UNICODE[piece.color + piece.type] || '';
+        cell.classList.add(piece.color === 'w' ? 'piece-w' : 'piece-b');
       }
 
       // 선택 표시

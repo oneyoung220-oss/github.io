@@ -924,6 +924,27 @@ body {
 .cell.light { background: #f0d9b5; }
 .cell.dark  { background: #b58863; }
 .cell.selected { background: rgba(100,180,100,0.85) !important; }
+
+.cell.piece-w {
+  color: #fffdf5;
+  text-shadow:
+    0 0 2px #000,
+    0 1px 4px rgba(0,0,0,0.9),
+   -1px -1px 0 #333,
+    1px -1px 0 #333,
+   -1px  1px 0 #333,
+    1px  1px 0 #333;
+}
+.cell.piece-b {
+  color: #1a1208;
+  text-shadow:
+    0 0 3px rgba(255,255,255,0.9),
+    0 1px 4px rgba(255,255,255,0.7),
+   -1px -1px 0 rgba(255,255,255,0.5),
+    1px -1px 0 rgba(255,255,255,0.5),
+   -1px  1px 0 rgba(255,255,255,0.5),
+    1px  1px 0 rgba(255,255,255,0.5);
+}
 .cell.valid-move::after {
   content: '';
   position: absolute;
