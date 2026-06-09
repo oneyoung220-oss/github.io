@@ -10,7 +10,7 @@
   --cream: #f5f0e8;
   --cream2: #ede5d5;
   --nav-width: 220px;
-  --nav-bg: rgba(14, 12, 10, 0.92);
+  --nav-bg: rgba(14, 12, 10, 0.97);
   --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -61,8 +61,6 @@ body {
   width: var(--nav-width);
   height: 100vh;
   background: var(--nav-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border-right: 1px solid rgba(201,168,76,0.2);
   display: flex;
   flex-direction: column;
@@ -206,8 +204,7 @@ body {
   align-items: center;
   gap: 0.75rem;
   padding: 0.85rem 2rem;
-  background: rgba(14,12,10,0.95);
-  backdrop-filter: blur(12px);
+  background: rgba(14,12,10,0.98);
   border-bottom: 1px solid rgba(201,168,76,0.2);
 }
 
